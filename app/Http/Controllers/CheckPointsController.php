@@ -36,6 +36,11 @@ class CheckPointsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'location' => 'required',
+        ]);
+
         $checkpoint = CheckPoint::create($request->input());
 
         if ($checkpoint) {
@@ -76,6 +81,11 @@ class CheckPointsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'location' => 'required',
+        ]);
+
         $checkpoint = CheckPoint::find($id);
         $result = $checkpoint->update($request->input());
         if ($result) {

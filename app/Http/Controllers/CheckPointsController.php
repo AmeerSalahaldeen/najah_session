@@ -83,6 +83,10 @@ class CheckPointsController extends Controller
      */
     public function destroy($id)
     {
-        CheckPoint::find($id)->delete();
+        $result = CheckPoint::find($id)->delete();
+        if ($result) {
+            \Session::flash('message', 'Successfully deleted the check Point!');
+            return redirect()->intended('checkpoints');
+        }
     }
 }

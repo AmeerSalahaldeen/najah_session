@@ -2,6 +2,11 @@
   @section('content')
     <section class="content">
 
+<div class="pull-right">
+  <a class="btn btn-small btn-success " href="{{ URL::to('checkpoints/create') }}"><span class="glyphicon glyphicon-plus"></span> Create</a>
+  </div>
+  <br>
+
     @if (Session::has('message'))
       <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif
@@ -25,10 +30,14 @@
                       <td><a href = "/checkpoints/{{$checkpoint->id}}">{{$checkpoint->name}}</a></td> 
                       <td>{{$checkpoint->location}}</td>
                       <td>
-                         {{ Form::open(array('url' => 'checkpoints/' . $checkpoint->id, 'class' => 'pull-right')) }}
-                          {{ Form::hidden('_method', 'DELETE') }}
-                          {{ Form::submit('Delete this Checkpoint', array('class' => 'btn btn-danger')) }}
-                        {{ Form::close() }} 
+                          {{ Form::open(array('url' => 'checkpoints/' . $checkpoint->id)) }}
+                            {{ Form::hidden('_method', 'DELETE') }}
+                            {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
+                          {{ Form::close() }} 
+                      </td>
+                      <td>  
+                      <a class="btn btn-small btn-info" href="{{ URL::to('checkpoints/' . $checkpoint->id . '/edit') }}">Edit</a>
+
                       </td>
                     </tr>
                   @endforeach

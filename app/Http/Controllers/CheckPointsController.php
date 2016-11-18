@@ -37,6 +37,10 @@ class CheckPointsController extends Controller
     public function store(Request $request)
     {
         $checkpoint = CheckPoint::create($request->input());
+
+        if ($checkpoint) {
+            \Session::flash('message', 'Successfully addedd the check Point!');
+        }
         return redirect()->intended('/checkpoints');
     }
 
@@ -48,7 +52,7 @@ class CheckPointsController extends Controller
      */
     public function show($id)
     {
-        $checkpoint = CheckPoint::find($id);
+
     }
 
     /**
@@ -59,9 +63,10 @@ class CheckPointsController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+        $checkPoint = CheckPoint::find($id);
+        return View('/checkPoints/edit')->with(['checkPoint' => $checkPoint]);
 
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -72,7 +77,11 @@ class CheckPointsController extends Controller
     public function update(Request $request, $id)
     {
         $checkpoint = CheckPoint::find($id);
-        $checkpoint->update($request->input()->all());
+        $result = $checkpoint->update($request->input());
+        if ($result) {
+            \Session::flash('message', 'Successfully updated the check Point!');
+            return redirect()->intended('checkpoints');
+        }
     }
 
     /**

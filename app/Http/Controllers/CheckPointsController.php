@@ -15,7 +15,7 @@ class CheckPointsController extends Controller
     public function index()
     {
         $checkPoints = CheckPoint::all();
-        return View('/checkPoints/index')->with($checkPoints);
+        return View('/checkPoints/index')->with(['checkPoints' => $checkPoints]);
     }
 
     /**
@@ -36,8 +36,8 @@ class CheckPointsController extends Controller
      */
     public function store(Request $request)
     {
-
         $checkpoint = CheckPoint::create($request->input());
+        return redirect()->intended('/checkpoints');
     }
 
     /**

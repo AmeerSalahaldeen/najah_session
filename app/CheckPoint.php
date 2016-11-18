@@ -8,8 +8,8 @@ class CheckPoint extends Model
 {   
     protected $fillable = ['name', 'location'];
 
- 	public function subscribers()
+    public function status()
     {
-        return $this->belongsToMany('\App\User');
+    	
     }
 }

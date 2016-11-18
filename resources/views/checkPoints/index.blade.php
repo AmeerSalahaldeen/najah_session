@@ -6,7 +6,7 @@
   <a class="btn btn-small btn-success " href="{{ URL::to('checkpoints/create') }}"><span class="glyphicon glyphicon-plus"></span> Create</a>
   </div>
   <br>
-
+  <hr>
     @if (Session::has('message'))
       <div class="alert alert-info">{{ Session::get('message') }}</div>
     @endif

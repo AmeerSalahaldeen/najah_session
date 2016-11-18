@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "159a612ba79574b6adf86d6b45aa772b",
-    "content-hash": "508dad1c633bfa0b29326dcde73042d5",
+    "hash": "c90616fe949753a32c0cc47b2a8b4c5c",
+    "content-hash": "def9038381bc5114e70c20077233fef3",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -878,6 +878,58 @@
                 "tokenizer"
             ],
             "time": "2015-12-05 17:17:57"
+        },
+        {
+            "name": "kodeine/laravel-acl",
+            "version": "1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kodeine/laravel-acl.git",
+                "reference": "7496fdae186b780b7c7db7f95048206cfb00967a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kodeine/laravel-acl/zipball/7496fdae186b780b7c7db7f95048206cfb00967a",
+                "reference": "7496fdae186b780b7c7db7f95048206cfb00967a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "doctrine/dbal": "^2.5",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kodeine\\Acl\\": "src/Kodeine/Acl"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ahsen M.",
+                    "homepage": "https://github.com/kodeine",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Light-weight role-based permissions for Laravel 5 built in Auth system.",
+            "keywords": [
+                "acl",
+                "auth",
+                "eloquent",
+                "laravel",
+                "permissions",
+                "roles",
+                "security"
+            ],
+            "time": "2016-11-06 09:04:25"
         },
         {
             "name": "laravel/framework",
@@ -4236,7 +4288,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "kodeine/laravel-acl": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

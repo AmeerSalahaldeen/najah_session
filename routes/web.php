@@ -27,3 +27,10 @@ Route::get('/callback', 'SocialAuthController@callback');
 Route::resource('checkpoints', 'CheckPointsController');
 
 Route::resource('subscriptions', 'SubscriptionsController');
+
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'acl'], 'is' => 'administrator'], function () {
+	Route::get('users/{id}/enable', 'UsersController@enable');
+	Route::get('users/{id}/disable', 'UsersController@disable');
+    Route::resource('users', 'UsersController');
+});
